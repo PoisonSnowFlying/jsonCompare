@@ -1,0 +1,17 @@
+//去掉中间的功能列
+.CodeMirror-merge-2pane .CodeMirror-merge-gap {
+    display:none;
+}
+.CodeMirror-merge-2pane .CodeMirror-merge-pane {
+    width: 50%;
+}
+// 容器的高度重置
+.CodeMirror-merge, .CodeMirror-merge .CodeMirror {
+    height: 500px;
+}
+//不同行的背景颜色设置 .CodeMirror-merge-r-chunk {background: red;}
+// 字体和行高
+.CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {
+    font-size:14px;
+    line-height:21px;
+}

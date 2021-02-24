@@ -1,0 +1,54 @@
+{
+  "name": "jsoncompare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PoisonSnowFlying/jsonCompare.git"
+  },
+  "keywords": [
+    "json",
+    "compare"
+  ],
+  "author": "muzhaoyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PoisonSnowFlying/jsonCompare/issues"
+  },
+  "homepage": "https://github.com/PoisonSnowFlying/jsonCompare#readme",
+  "dependencies": {
+    "@babel/preset-react": "^7.12.13",
+    "@babel/runtime": "^7.12.18",
+    "codemirror": "^5.59.2",
+    "core-js": "3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tapable": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.17",
+    "@babel/core": "^7.12.17",
+    "@babel/plugin-transform-runtime": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "autoprefixer": "^10.2.4",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.0.2",
+    "html-webpack-plugin": "^5.1.0",
+    "postcss": "^8.2.6",
+    "postcss-loader": "^5.0.0",
+    "postcss-scss": "^3.0.4",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

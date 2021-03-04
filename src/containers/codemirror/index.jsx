@@ -8,31 +8,41 @@ import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/mode/htmlmixed/htmlmixed.js';
 import 'codemirror/addon/merge/merge.js';
 import CodeMirror from 'codemirror/lib/codemirror.js';
-import sq from './sq.json';
-import sq2 from './sq2.json';
 import './index.scss';
-export default () => {
-    const value = 1;
+export default ({
+    origin,
+    target,
+    type
+}) => {
     const code = useRef(null);
+    let value,orig;
+    if(type !== 'juststring') {
+        value = typeof origin === 'string' ? JSON.stringify(JSON.parse(target),null,'\t') : JSON.stringify(target,null,'\t');
+        orig = typeof origin === 'string' ? JSON.stringify(JSON.parse(origin),null,'\t') : JSON.stringify(origin,null,'\t');
+    } else {
+        value = target;
+        orig = origin;
+    }
     React.useEffect(() => {
-        function initUI() {
             if (value == null) return;
+            if(code.current) {
+                code.current.innerHTML = '';
+            }
             const cr = CodeMirror.MergeView(code.current, {
-                value: JSON.stringify(sq,null,'\t'),
+                value,
                 //origLeft: panes == 2 ? orig1 : null,
                 revertButtons:false,
-                orig: JSON.stringify(sq2,null,'\t'),
+                orig,
                 lineNumbers: true,
                 mode: "text/html",
                 highlightDifferences: true,
                 connect: 'align',
                 collapseIdentical: false,
             });
+            cr.edit.refresh();
             // 不可编辑
-            cr.editor().options.readOnly = true
-        }
-        initUI();
-    }, []);
+            cr.editor().options.readOnly = true;
+    }, [type]);
     return (
         <div className="codemirror_container">
             <div className="codemirror" ref={code}>

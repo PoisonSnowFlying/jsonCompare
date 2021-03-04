@@ -1,12 +1,14 @@
 const path = require('path');
 const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production';
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 module.exports = {
     mode,
+    // devtool: 'source-map',
     entry: {
-        // main: './src/index.jsx',
-        tapable:'./tapableTest/index.jsx',
+        main: './src/index.jsx',
+        //tapable:'./tapableTest/index.jsx',
     },
     output: {
         filename: '[name].js',
@@ -63,6 +65,13 @@ module.exports = {
     plugins: [new HtmlWebpackPlugin({
         template: path.resolve('./template/index.html')
     })],
+    optimization: {
+        //minimize: true,
+        // minimizer: [
+        //     new UglifyJsPlugin(),
+        //     // new Analyzer(),
+        // ],
+    },
     resolve: {
         extensions: ['.js', '.jsx', '.json']
     },
